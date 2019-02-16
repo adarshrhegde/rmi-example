@@ -5,14 +5,14 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class RmiMain {
+public class RmiServer {
 
     Registry registry;
 
 
-    public void setupRegistry(){
+    public void getRegistry(){
         try {
-            registry = LocateRegistry.createRegistry(0);
+            registry = LocateRegistry.getRegistry(0);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -43,36 +43,16 @@ public class RmiMain {
 
     }
 
-    public boolean executeClient(){
 
-        try {
-            System.out.println("Starting client");
-
-
-            // Creating stubs for Alexa
-            VirtualAssistant alexastub = (VirtualAssistant) registry.lookup("alexa");
-            VirtualAssistant alexastub2 = alexastub;
-
-
-            return alexastub.compareInstances(alexastub, alexastub2);
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return false;
-    }
 
     public static void main(String[] args){
 
-        RmiMain rmiMain = new RmiMain();
+        RmiServer rmiServer = new RmiServer();
 
-        rmiMain.setupRegistry();
-        rmiMain.setupServer();
+        rmiServer.getRegistry();
+        rmiServer.setupServer();
 
-        boolean result = rmiMain.executeClient();
-        System.out.print("Result of referential integrity test>> " + result);
+
 
     }
 }
