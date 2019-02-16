@@ -3,6 +3,10 @@ package com.uic.rmi;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+
+/**
+ * The client class
+ */
 public class RmiClient {
 
     public boolean executeClient(){
@@ -11,11 +15,13 @@ public class RmiClient {
             System.out.println("Starting client");
 
             Registry registry = LocateRegistry.getRegistry(0);
+
             // Creating stubs for Alexa
             VirtualAssistant alexastub = (VirtualAssistant) registry.lookup("alexa");
             VirtualAssistant alexastub2 = alexastub;
 
 
+            // performing referential integrity test
             return alexastub.compareInstances(alexastub, alexastub2);
 
 

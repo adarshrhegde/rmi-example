@@ -5,6 +5,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+/**
+ * The server class
+ */
 public class RmiServer {
 
     Registry registry;
@@ -30,6 +33,7 @@ public class RmiServer {
             GoogleAssistant googleAssistant = new GoogleAssistant();
             VirtualAssistant googleStub = (VirtualAssistant) UnicastRemoteObject.exportObject(googleAssistant, 0);
 
+            // Binding the stubs to the registry
             registry.bind("alexa", alexaStub);
             registry.bind("google", googleStub);
             Thread.sleep(5000);

@@ -3,6 +3,9 @@ package com.uic.rmi;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+/**
+ * Remote Interface
+ */
 public interface VirtualAssistant extends Remote {
 
     void sayHello() throws RemoteException;

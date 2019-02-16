@@ -2,6 +2,9 @@ package com.uic.rmi;
 
 import java.rmi.RemoteException;
 
+/**
+ * Alexa implements the remote interface VirtualAssitant
+ */
 public class Alexa implements VirtualAssistant {
 
     private static final String greeter = "Hey Alexa";

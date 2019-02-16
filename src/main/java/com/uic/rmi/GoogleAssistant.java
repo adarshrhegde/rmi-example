@@ -2,6 +2,10 @@ package com.uic.rmi;
 
 import java.rmi.RemoteException;
 
+
+/**
+ * GoogleAssistant implements the remote interface VirtualAssitant
+ */
 public class GoogleAssistant implements VirtualAssistant {
 
     private static final String greeter = "Hey Google";
